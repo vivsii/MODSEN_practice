@@ -1,0 +1,41 @@
+{
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true,
+    "arrow-body-style": [
+        "error",
+        "as-needed"
+    ],
+    "react/self-closing-comp": [
+        "error",
+        {
+            "component": true,
+            "html": true
+        }
+    ],
+    "import/order": [
+        "error",
+        {
+            "groups": [
+                "builtin",
+                "external",
+                "parent",
+                "sibling",
+                "index",
+                "object",
+                "type"
+            ],
+            "pathGroups": [
+                {
+                    "pattern": "@/**/**",
+                    "group": "parent",
+                    "position": "before"
+                }
+            ],
+            "alphabetize": {
+                "order": "asc"
+            }
+        }
+    ]
+}
