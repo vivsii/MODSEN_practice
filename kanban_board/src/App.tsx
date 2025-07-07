@@ -6,7 +6,7 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/kanban' element={<Kanban/>}></Route>
+                <Route path="/kanban" element={<Kanban />}></Route>
             </Routes>
         </BrowserRouter>
     )

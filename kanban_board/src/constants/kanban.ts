@@ -1,19 +1,20 @@
-export type Priority = 'Low' | 'Medium' | 'High';
+export type Priority = 'Low Priority' | 'Medium' | 'High Priority'
 
 export interface TaskCard {
-  id: string;
-  title: string;
-  description?: string;
-  priority?: Priority;
+    id: number
+    title: string
+    description?: string
+    priority?: Priority
 }
 
 export interface Column {
-  id: string;
-  title: string;
-  color: string;
-  tasks: TaskCard[];
+    id: number
+    title: string
+    color: string
+    count: number
+    tasks: TaskCard[]
 }
 
 export interface Board {
-  columns: Column[];
+    columns: Column[]
 }

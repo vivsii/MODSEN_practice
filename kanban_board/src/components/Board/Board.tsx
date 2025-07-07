@@ -1,5 +1,3 @@
 export const Board = () => {
-  return (
-    <div>Board</div>
-  )
+    return <div>Board</div>
 }
