@@ -8,7 +8,7 @@ const saveBoard = (state: any) => {
 const loadBoard = () => {
     const data = localStorage.getItem('kanbanBoard')
     if (data) {
-        return JSON.stringify(data)
+        return JSON.parse(data)
     }
     return undefined
 }

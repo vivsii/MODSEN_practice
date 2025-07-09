@@ -1,16 +1,14 @@
-export type Priority = 'Low Priority' | 'Medium' | 'High Priority'
-
 export interface TaskCard {
     id: number
     title: string
     description?: string
-    priority?: Priority
+    priority?: string
 }
 
 export interface Column {
     id: number
     title: string
-    color: string
+    color?: string
     count: number
     tasks: TaskCard[]
 }

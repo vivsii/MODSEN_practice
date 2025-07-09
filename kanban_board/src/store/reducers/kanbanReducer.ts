@@ -23,6 +23,42 @@ const kanbanSlice = createSlice({
                 column.count = column.tasks.length
             }
         },
+        editColumn(
+            state,
+            action: PayloadAction<{ columnId: number; title: string }>
+        ) {
+            const { columnId, title } = action.payload
+            const column = state.columns.find((col) => col.id === columnId)
+            if (column) {
+                column.title = title
+            }
+        },
+        editTask(
+            state,
+            action: PayloadAction<{
+                columnId: number
+                priority: string
+                taskId: number
+                title: string
+                description: string
+            }>
+        ) {
+            const { columnId, taskId, priority, title, description } =
+                action.payload
+            const column = state.columns.find((col) => col.id === columnId)
+            if (column) {
+                const task = column.tasks.find((task) => task.id === taskId)
+                if (task) {
+                    task.priority = priority
+                    task.title = title
+                    task.description = description
+                }
+            }
+        },
+        removeColumn(state, action: PayloadAction<{ columnId: number }>) {
+            const { columnId } = action.payload
+            state.columns = state.columns.filter((col) => col.id !== columnId)
+        },
         removeTask(
             state,
             action: PayloadAction<{ columnId: number; taskId: number }>
@@ -37,5 +73,12 @@ const kanbanSlice = createSlice({
     },
 })
 
-export const { addColumn, addTaskColumn, removeTask } = kanbanSlice.actions
+export const {
+    addColumn,
+    addTaskColumn,
+    editTask,
+    editColumn,
+    removeTask,
+    removeColumn,
+} = kanbanSlice.actions
 export default kanbanSlice.reducer
