@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { lighten } from 'polished'
+import { rgba } from 'polished'
 
 export const TaskCardWrapper = styled.div`
     background: #fff;
@@ -14,7 +14,7 @@ export const TaskCardWrapper = styled.div`
 
 export const Priority = styled.h1`
     display: inline-block;
-    background: ${(props: any) => lighten(0.35, props.theme.priority)};
+    background: ${(props: any) => rgba(props.theme.priority, 0.1)};
     color: ${(props: any) => props.theme.priority};
     font-size: 0.7rem;
     font-weight: 500;
@@ -22,21 +22,25 @@ export const Priority = styled.h1`
     padding: 3px 10px;
 `
 
-export const PriorityInput = styled.input`
-    border-radius: 16px;
+export const PrioritySelect = styled.select`
     border: none;
     font-size: 0.7rem;
     padding: 3px 10px;
-    background: ${(props: any) => lighten(0.35, props.theme.priority)};
+    background: ${(props: any) => rgba(props.theme.priority, 0.1)};
     margin-bottom: 0.6em;
     margin-block-start: 0.67em;
-    width: 95%;
+    width: 35%;
     font-size: 0.7rem;
     color: ${(props: any) => props.theme.priority};
     line-height: 1;
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     font-weight: 500;
     outline: none;
+    .__select{
+    border-radius: 50px;
+
+    }
+   
 `
 
 export const Title = styled.h1`
@@ -72,32 +76,11 @@ export const DescriptionInput = styled(Description).attrs({ as: 'input' })`
     font-size: 0.9em;
     background: transparent;
 `
-export const Buttons = styled.div`
-    display: flex;
-    justify-content: space-between;
-`
-
-export const SaveButton = styled.button`
-    opacity: 0;
-    pointer-events: none;
-    background: none;
-    border: none;
-    padding: 0;
-    color: #586271;
-    font-size: 0.8em;
-    cursor: pointer;
-    ${TaskCardWrapper}:hover & {
-        opacity: 1;
-        pointer-events: auto;
-    }
-    &:hover {
-        text-decoration: underline;
-    }
-`
 
 export const RemoveButton = styled.button`
     opacity: 0;
     pointer-events: none;
+    margin-left: auto;
     background: none;
     border: none;
     padding: 0;

@@ -1,4 +1,4 @@
-import '@/App.css'
+import '@/components/App/App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Kanban } from '@/pages/Kanban'
 

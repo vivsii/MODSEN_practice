@@ -3,6 +3,7 @@ import { RootState } from '@/store'
 import { addColumn } from '@/store/reducers/kanbanReducer'
 import { HiOutlinePlus } from 'react-icons/hi'
 import { useDispatch, useSelector } from 'react-redux'
+import { ThemeProvider } from 'styled-components'
 export const Header = () => {
     const dispatch = useDispatch()
 
@@ -16,14 +17,19 @@ export const Header = () => {
             })
         )
     }
+    let theme = {
+        bg: '#f9fafc',
+    }
     return (
         <>
-            <HeaderWrapper>
-                <Title>Kanban Dashboard</Title>
-                <Button onClick={handleAddColumn}>
-                    <HiOutlinePlus />
-                </Button>
-            </HeaderWrapper>
+            <ThemeProvider theme={theme}>
+                <HeaderWrapper>
+                    <Title>Kanban Dashboard</Title>
+                    <Button onClick={handleAddColumn}>
+                        <HiOutlinePlus />
+                    </Button>
+                </HeaderWrapper>
+            </ThemeProvider>
         </>
     )
 }

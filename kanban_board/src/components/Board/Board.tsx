@@ -14,7 +14,7 @@ export const Board = () => {
                 columnId,
                 task: {
                     id: Number(Date.now()),
-                    priority: 'Priority',
+                    priority: 'High',
                     title: 'Task title',
                     description: 'Add Description',
                 },

@@ -5,9 +5,7 @@ import {
     Description,
     TitleInput,
     DescriptionInput,
-    PriorityInput,
-    Buttons,
-    SaveButton,
+    PrioritySelect,
     RemoveButton,
 } from '@/components/TaskCard/styled'
 import { getPriorityColor } from '@/constants/colors'
@@ -30,7 +28,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
     onSave,
     onRemove,
 }) => {
-    const [editPriority, setEditPriority] = useState(false)
+    const [editPriority, setEditPriority] = useState(true)
     const [editTitle, setEditTitle] = useState(false)
     const [editDescription, setEditDescription] = useState(false)
 
@@ -52,7 +50,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
             <ThemeProvider theme={taskTheme}>
                 <TaskCardWrapper>
                     {editPriority ? (
-                        <PriorityInput
+                        <PrioritySelect
                             value={priorityValue}
                             onChange={(e) => setPriorityValue(e.target.value)}
                             onBlur={() => {
@@ -66,7 +64,13 @@ export const TaskCard: React.FC<TaskCardProps> = ({
                                 }
                             }}
                             autoFocus
-                        />
+                        >
+                            {' '}
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                            <option value="Important">Important</option>
+                        </PrioritySelect>
                     ) : (
                         <Priority
                             onClick={() => {
@@ -134,12 +138,9 @@ export const TaskCard: React.FC<TaskCardProps> = ({
                             {descriptionValue}
                         </Description>
                     )}
-                    <Buttons>
-                        <SaveButton onClick={handleSave}>Save</SaveButton>
-                        <RemoveButton onClick={onRemove}>
-                            <IoTrashOutline />
-                        </RemoveButton>
-                    </Buttons>
+                    <RemoveButton onClick={onRemove}>
+                        <IoTrashOutline />
+                    </RemoveButton>
                 </TaskCardWrapper>
             </ThemeProvider>
         </>

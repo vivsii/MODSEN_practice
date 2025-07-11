@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { lighten } from 'polished'
+import { lighten, rgba } from 'polished'
 
 export const ColumnWrapper = styled.div`
     display: flex;
@@ -97,7 +97,7 @@ export const AddTask = styled.button`
     border-radius: 40px;
     padding: 5px 10px;
     color: ${(props: any) => props.theme.main};
-    background: ${(props: any) => lighten(0.35, props.theme.main)};
+    background: ${(props: any) => rgba(props.theme.main, 0.1)};
     font-size: 1em;
     cursor: pointer;
 `

@@ -22,7 +22,7 @@ import { TaskCardWrapper } from '@/components/TaskCard/styled'
 import { useState } from 'react'
 import { IoTrashOutline } from 'react-icons/io5'
 import { ThemeProvider } from 'styled-components'
-import { getColumnColor, getPriorityColor } from '@/constants/colors'
+import { getColumnColor } from '@/constants/colors'
 
 interface ColumnCardProps {
     columnId: number
@@ -113,7 +113,12 @@ export const Column: React.FC<ColumnCardProps> = ({
                                 autoFocus
                             />
                         ) : (
-                            <Title onClick={() => setEdit(true)}>
+                            <Title
+                                onClick={() => {
+                                    setEdit(true)
+                                    setEditTitle('')
+                                }}
+                            >
                                 {editTitle}
                             </Title>
                         )}
